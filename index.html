@@ -94,11 +94,25 @@
 
             </div>
             
-            <!-- Botão Mobile (Comentado/Removido) -->
+            <!-- Botão Mobile (AGORA ATIVO) -->
             <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
         </nav>
     </header>
+
+    <!-- Menu Mobile (Dropdown - NOVO) -->
+    <div id="mobile-menu" class="md:hidden bg-black text-white fixed top-20 left-0 w-full z-40 hidden shadow-lg">
+        <a href="#problema" class="block px-6 py-4 text-lg font-medium hover:bg-gray-800 transition duration-300">O Desafio</a>
+        <a href="#solucao" class="block px-6 py-4 text-lg font-medium hover:bg-gray-800 transition duration-300">A Solução</a>
+        <a href="#precos" class="block px-6 py-4 text-lg font-medium hover:bg-gray-800 transition duration-300">Preços</a>
+        <!-- Logo da Safety Park no Menu Mobile -->
+        <div class="px-6 py-4">
+            <img src="https://operacional-safety.github.io/logo-safety/Logo%20Safety.png" alt="Safety Park Logo" class="safety-park-logo-header" style="width: 150px; height: auto;">
+        </div>
+    </div>
 
     <main>
         <!-- ===== HERO SECTION ===== -->
@@ -293,6 +307,26 @@
             animatedElements.forEach(el => {
                 observer.observe(el);
             });
+
+            // --- NOVO CÓDIGO PARA O MENU MOBILE ---
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuLinks = document.querySelectorAll('#mobile-menu a');
+
+            if (menuButton && mobileMenu) {
+                // 1. Abrir/Fechar com o botão
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                // 2. Fechar o menu ao clicar em um link (para navegação na mesma página)
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+            // --- FIM DO NOVO CÓDIGO ---
         });
     </script>
 </body>
