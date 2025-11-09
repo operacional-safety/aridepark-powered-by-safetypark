@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aride Park & Safety Park - A Solução em Mobilidade</title>
+    
+    <!-- Script TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Define a fonte Inter como padrão */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Ativa o scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animação para "incremento visual" */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Classe que será aplicada pelo JS */
+        .fade-in-up {
+            opacity: 0; /* Começa invisível */
+            animation: fadeInUp 0.7s ease-out forwards;
+        }
+
+        /* Estilo para a logo da Safety Park no header */
+        .safety-park-logo-header {
+            /* Reativando o filtro invert para transformar o preto (texto e círculo) em branco */
+            filter: invert(1); 
+            height: 35px; /* Altura da logo na navegação */
+            width: auto; /* Mantém proporção */
+            margin-right: -10px; /* Ajusta espaçamento se necessário */
+        }
+
+        /* Novo estilo para o container da logo (não clicável) */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 160px; /* Tamanho da bolha (diminuído) */
+            height: 160px; /* Tamanho da bolha (diminuído) */
+            border-radius: 9999px; /* Círculo */
+            background-color: #000; /* Fundo preto */
+            overflow: hidden; /* Garante que a imagem não vaze */
+            position: relative;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.3); /* Sombra para destaque */
+        }
+        
+        .logo-container img {
+            width: 100%; /* Garante que a imagem ocupe 100% da largura do círculo */
+            height: auto; /* Deixa a altura se ajustar proporcionalmente */
+            object-fit: contain;
+            /* Removido o filter: invert(1) pois a logo da Aride já é branca */
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <!-- ===== HEADER ===== -->
+    <header class="bg-black text-white w-full fixed top-0 z-50 shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <!-- Logo Esquerda -->
+            <div>
+                <h1 class="text-3xl font-extrabold">Aride Park</h1>
+                <p class="text-sm text-gray-400">Powered by Safety Park</p>
+            </div>
+            <!-- Navegação Desktop -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#problema" class="font-medium hover:text-red-500 transition duration-300">O Desafio</a>
+                <a href="#solucao" class="font-medium hover:text-red-500 transition duration-300">A Solução</a>
+                <a href="#precos" class="font-medium hover:text-red-500 transition duration-300">Preços</a>
+                
+                <!-- Logo Safety Park no Header -->
+                <img src="https://operacional-safety.github.io/logo-safety/Logo%20Safety.png" alt="Safety Park Logo" class="safety-park-logo-header" style="width: 150px; height: auto;"> 
+
+            </div>
+            
+            <!-- Botão Mobile (Comentado/Removido) -->
+            <div class="md:hidden">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ===== HERO SECTION ===== -->
+        <section class="min-h-screen bg-gray-900 text-white flex flex-col justify-center items-center text-center pt-20 px-4">
+            
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-5xl md:text-7xl font-extrabold mb-4 scroll-animate">Você já conhece o Aride Park?</h2>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto scroll-animate" style="animation-delay: 100ms;">
+                    Seguro e estacionamento juntos. A proposta mais forte para o setor de mobilidade, protegendo bicicletas, elétricas e autopropelidos contra riscos financeiros.
+                </p>
+                <a href="#solucao" class="bg-red-600 text-white px-8 py-4 rounded-md text-lg font-bold hover:bg-red-700 transition duration-300 transform hover:scale-105 scroll-animate" style="animation-delay: 200ms;">
+                    Conheça a Solução
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== O DESAFIO (THE PROBLEM) ===== -->
+        <section id="problema" class="py-24 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 scroll-animate">O Desafio Diário</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto scroll-animate" style="animation-delay: 100ms;">
+                        Muitos acabam deixando seus equipamentos em locais improvisados. Isso gera problemas reais:
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-xl border-t-4 border-red-600 scroll-animate" style="animation-delay: 200ms;">
+                        <h3 class="text-2xl font-bold mb-3">Risco de Furtos e Danos</h3>
+                        <p class="text-gray-700">A falta de um local seguro aumenta exponencialmente a vulnerabilidade do seu equipamento.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-xl border-t-4 border-red-600 scroll-animate" style="animation-delay: 300ms;">
+                        <h3 class="text-2xl font-bold mb-3">Falta de Vigilância</h3>
+                        <p class="text-gray-700">Locais públicos não oferecem a vigilância adequada para garantir a proteção do seu bem.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white p-8 rounded-lg shadow-xl border-t-4 border-red-600 scroll-animate" style="animation-delay: 400ms;">
+                        <h3 class="text-2xl font-bold mb-3">Ausência de Seguro</h3>
+                        <p class="text-gray-700">Em locais não autorizados ou inadequados, a cobertura de seguros é frequentemente invalidada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== A SOLUÇÃO (THE SOLUTION) ===== -->
+        <section id="solucao" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+                
+                <!-- Coluna de Texto -->
+                <div class="md:w-1/2 scroll-animate">
+                    <span class="text-red-600 font-bold uppercase">A Parceria Perfeita</span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 my-4">A Solução Aride + Safety Park</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        É nesse ponto que a infraestrutura de um estacionamento seguro faz toda a diferença. Somada ao seguro, ela potencializa a experiência do cliente, oferecendo proteção física e conveniência.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        A parceria <strong>Aride + Safety Park</strong> traz exatamente essa solução, com tecnologia digital e uma rede estruturada de estacionamentos, em condições acessíveis.
+                    </p>
+                    <a href="#cta" class="bg-red-600 text-white px-8 py-3 rounded-md text-lg font-bold hover:bg-red-700 transition duration-300">
+                        Quero Falar com um Consultor
+                    </a>
+                </div>
+                
+                <!-- Coluna Visual (Logo) -->
+                <div class="md:w-1/2 flex justify-center items-center scroll-animate" style="animation-delay: 200ms;">
+                    <!-- Novo campo de imagem (não clicável) -->
+                    <div class="logo-container">
+                        <img src="https://operacional-safety.github.io/logo-aride/logo-aride.png" alt="Aride Logo" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PREÇOS (PRICING) ===== -->
+        <section id="precos" class="py-24 bg-gray-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-4 scroll-animate">Condições Acessíveis</h2>
+                    <p class="text-lg text-gray-300 max-w-2xl mx-auto scroll-animate" style="animation-delay: 100ms;">
+                        Proteção e conveniência que cabem no seu bolso.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Preço 1 -->
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-xl text-center scroll-animate" style="animation-delay: 200ms;">
+                        <h3 class="text-2xl font-bold mb-3 text-red-500">Gratuito</h3>
+                        <p class="text-lg">Primeiro período gratuito em diversas filiais Safety Park.</p>
+                    </div>
+                    
+                    <!-- Preço 2 (Destaque) -->
+                    <div class="bg-red-600 text-white p-8 rounded-lg shadow-2xl text-center transform scale-105 scroll-animate" style="animation-delay: 300ms;">
+                        <h3 class="text-2xl font-bold mb-3">R$ 2,00</h3>
+                        <p class="text-lg font-bold">A cada 30 minutos de permanência (após período gratuito).</p>
+                    </div>
+                    
+                    <!-- Preço 3 -->
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-xl text-center scroll-animate" style="animation-delay: 400ms;">
+                        <h3 class="text-2xl font-bold mb-3 text-red-500">R$ 16,00</h3>
+                        <p class="text-lg">Valor máximo da diária. Sem surpresas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== VALOR (VALUE PROPOSITION) ===== -->
+        <section id="valor" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 scroll-animate">O que essa combinação entrega:</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Valor 1 -->
+                    <div class="text-center p-6 scroll-animate" style="animation-delay: 200ms;">
+                        <h3 class="text-2xl font-bold mb-3 text-red-600">Diferenciação</h3>
+                        <p class="text-gray-700 text-lg">Destaque total frente à concorrência que não oferece seguro integrado.</p>
+                    </div>
+                    
+                    <!-- Valor 2 -->
+                    <div class="text-center p-6 scroll-animate" style="animation-delay: 300ms;">
+                        <h3 class="text-2xl font-bold mb-3 text-red-600">Valor Agregado</h3>
+                        <p class="text-gray-700 text-lg">Mais segurança para clientes e mais valor para os negócios parceiros.</p>
+                    </div>
+                    
+                    <!-- Valor 3 -->
+                    <div class="text-center p-6 scroll-animate" style="animation-delay: 400ms;">
+                        <h3 class="text-2xl font-bold mb-3 text-red-600">Confiança</h3>
+                        <p class="text-gray-700 text-lg">Um novo patamar de confiança e profissionalismo no setor de mobilidade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA (CALL TO ACTION) ===== -->
+        <section id="cta" class="py-24 bg-red-600 text-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-6 scroll-animate">
+                    Seguro é indispensável.<br> Estacionamento seguro também.
+                </h2>
+                <p class="text-2xl md:text-3xl font-bold mb-10 scroll-animate" style="animation-delay: 100ms;">
+                    Chegou o Aride Park!
+                </p>
+                <p class="text-xl mb-10 scroll-animate" style="animation-delay: 200ms;">
+                    Ficou com alguma dúvida sobre o Aride Park? Fale conosco!
+                </p>
+                <a href="https://w.app/5wsl7z" target="_blank" rel="noopener noreferrer" class="bg-white text-red-600 px-10 py-4 rounded-md text-xl font-bold hover:bg-gray-100 transition duration-300 transform hover:scale-105 scroll-animate" style="animation-delay: 300ms;">
+                    Fale com um especialista
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-black text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Aride Park. Todos os direitos reservados.</p>
+            <p class="mt-2">Uma parceria estratégica com <strong>Safety Park</strong>.</p>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPT (Intersection Observer) ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Configuração do Intersection Observer para animações
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Adiciona um delay baseado no atributo style="animation-delay"
+                        const delay = entry.target.style.animationDelay || '0ms';
+                        
+                        // Aplica a animação após o delay
+                        setTimeout(() => {
+                            entry.target.classList.add('fade-in-up');
+                        }, parseInt(delay));
+                        
+                        // Para de observar o elemento após a animação
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // Anima quando 10% do elemento está visível
+            });
+
+            // Observa cada elemento
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
