@@ -85,11 +85,20 @@
                 <img src="https://operacional-safety.github.io/logo-safety/Logo%20Safety.png" alt="Safety Park Logo" class="safety-park-logo-header" style="width: 140px; height: auto;"> 
             </div>
 
-            <!-- Coluna Central: Navegação (Sempre visível) -->
-            <div classa="flex justify-center items-center space-x-2 md:space-x-6 text-sm md:text-base">
-                <a href="#problema" class="font-medium hover:text-red-500 transition duration-300">O Desafio</a>
-                <a href="#solucao" class="font-medium hover:text-red-500 transition duration-300">A Solução</a>
-                <a href="#precos" class="font-medium hover:text-red-500 transition duration-300">Preços</a>
+            <!-- Coluna Central: Botão de Menu Dropdown -->
+            <div class="relative justify-self-center">
+                <button id="menu-toggle-button" class="flex items-center space-x-2 bg-gray-800 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-md transition duration-300 text-sm md:text-base">
+                    <span>Menu</span>
+                    <!-- Ícone de Seta para baixo -->
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+
+                <!-- Painel Dropdown -->
+                <div id="menu-dropdown" class="hidden absolute top-full mt-2 w-48 bg-white rounded-md shadow-lg z-50 left-1/2 -translate-x-1/2">
+                    <a href="#problema" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 transition duration-200">O Desafio</a>
+                    <a href="#solucao" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 transition duration-200">A Solução</a>
+                    <a href="#precos" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 transition duration-200">Preços</a>
+                </div>
             </div>
             
             <!-- Coluna Direita: Logo Aride Park -->
@@ -297,7 +306,33 @@
                 observer.observe(el);
             });
 
-            // --- CÓDIGO DO MENU MOBILE REMOVIDO ---
+            // --- NOVO CÓDIGO PARA O MENU DROPDOWN ---
+            const menuButton = document.getElementById('menu-toggle-button');
+            const menuDropdown = document.getElementById('menu-dropdown');
+            const menuLinks = document.querySelectorAll('#menu-dropdown a');
+
+            if (menuButton && menuDropdown) {
+                // 1. Abrir/Fechar com o botão
+                menuButton.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Impede que o clique feche o menu imediatamente
+                    menuDropdown.classList.toggle('hidden');
+                });
+
+                // 2. Fechar o menu ao clicar em um link
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuDropdown.classList.add('hidden');
+                    });
+                });
+
+                // 3. Fechar o menu ao clicar fora dele
+                document.addEventListener('click', (event) => {
+                    if (!menuButton.contains(event.target) && !menuDropdown.contains(event.target)) {
+                        menuDropdown.classList.add('hidden');
+                    }
+                });
+            }
+            // --- FIM DO NOVO CÓDIGO ---
             
         });
     </script>
